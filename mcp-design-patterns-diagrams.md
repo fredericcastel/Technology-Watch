@@ -1,55 +1,6 @@
-# MCP Design Patterns Diagrams
-
-## 1. Model-View-Presenter (MVP)
-```mermaid
-graph LR
-A[User] -->|Interacts| B[View]
-B -->|Notifies| C[Presenter]
-C -->|Updates| B
-C -->|Fetches| D[Model]
-D -->|Returns Data| C
-```
-
-## 2. Model-View-Controller (MVC)
-```mermaid
-graph TD
-A[User] -->|Input| B[Controller]
-B -->|Fetches Model| C[Model]
-C -->|Updates| B
-B -->|Updates View| D[View]
-D -->|Displays| A
-```
-
-## 3. Model-View-ViewModel (MVVM)
-```mermaid
-graph TD
-A[User] -->|Interacts| B[View]
-B -->|Binds| C[ViewModel]
-C -->|Updates| B
-C -->|Fetches| D[Model]
-D -->|Returns Data| C
-```
-
-## 4. Flux
-```mermaid
-graph TD
-A[View] -->|Dispatch| B[Action]
-B -->|Notifies| C[Store]
-C -->|Updates| A
-C -->|Emits| D[View]
-```
-
-## 5. Command Pattern
-```mermaid
-graph TD
-A[Client] -->|Sends Command| B[Invoker]
-B -->|Calls| C[Command]
-C -->|Executes| D[Receiver]
-```
-
-## 6. Observer Pattern
-```mermaid
-graph TD
-A[Subject] -->|Notifies| B[Observer]
-B -->|Updates| C[ConcreteObserver]
-```
+"```mermaid\n    graph TD\n      A[API] -->|calls| B((Service))\n      A -->|directly uses| C[Wrapper]\n      B -->|modifies| C             \n  ```\n  
+  ## Composite Service Pattern diagram\n  ```mermaid\n  graph TD\n      A1[Service 1] -->|uses| A2[Service 2]\n      A2 -->|uses| C[Composite Service]\n      A3[Service 3] -->|directly calls| B((Service))             \n  ```\n  
+  ## MCP-to-Agent Pattern diagram\n  ```mermaid\n  graph TD\n      A[MCP] -->|sends requests| B[Agent]\n      B -->|returns data| A                \n  ```\n  
+  ## Event-Driven Integration Pattern diagram\n  ```mermaid\n  graph TD\n      A[Event] -->|triggers| B[Listener]\n      B -->|initiates| C((Service))          \n  ```\n  
+  ## Hierarchical MCP Pattern diagram\n  ```mermaid\n  graph TD\n      A[MCP Level 1] -->|contains| B[MCP Level 2]\n      B -->|contains| C[MCP Level 3]     \n  ```\n  
+  ## Local Resource Access Pattern diagram\n  ```mermaid\n  graph TD\n      A[Client] -->|accesses| B[Local Resource]\n      B -->|returns data| A \n  ```"
